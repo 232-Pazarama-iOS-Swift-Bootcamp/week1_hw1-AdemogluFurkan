@@ -9,6 +9,7 @@ import Foundation
 
 
 print("Enter register for register.")
+print("Enter login for login.")
 print("Enter username for login.")
 print("Enter list for listing books")
 print("Enter buy for buy the book.")
@@ -26,18 +27,13 @@ while let input = readLine() {
         break
     }
     
-    let usernameValid=validUsername(username: input)
-    if usernameValid == true{
-        print("Welcome Book Store")
-        listBooks()
-    }else{
-        print("Check username")
-    }
+   
     
     switch input{
     case "list": listBooks()
     case "register": register()
     case "buy": buyBook()
+    case "login": login()
     default: print("You entered wrong command!")
     }
     
@@ -86,5 +82,19 @@ func buyBook(){
           }
       }
     }
+}
+
+func login(){
+    print("Enter username for login...")
+    if let username = readLine(){
+        let usernameValid=validUsername(username: username)
+        if usernameValid == true{
+            print("Welcome Book Store")
+            listBooks()
+        }else{
+            print("Check username")
+        }
+    }
+    
 }
 
